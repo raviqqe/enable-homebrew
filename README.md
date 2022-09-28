@@ -1,6 +1,8 @@
-# enable-homebrew-action
+# `enable-homebrew` GitHub Action
 
-GitHub Action to enable Homebrew.
+GitHub Action to enable Homebrew in Ubuntu virutal environments.
+
+This is a temporary mitigation for https://github.com/actions/runner-images/issues/6283.
 
 ## License
 
