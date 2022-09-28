@@ -4,7 +4,7 @@
   "description": "GitHub Action to enable Homebrew in Ubuntu virtual environments",
   "license": "MIT",
   "scripts": {
-    "test": "ncc build index.js -o dist"
+    "test": "ncc build index.js -o dist && git diff --exit-code"
   },
   "main": "index.js",
   "dependencies": {
