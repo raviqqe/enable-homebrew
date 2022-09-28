@@ -1,5 +1,5 @@
 name: Enable Homebrew
-description: Enable Homebrew in Ubuntu images
+description: Enable Homebrew in Ubuntu virtual environments
 inputs: {}
 outputs: {}
 runs:
