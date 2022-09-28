@@ -3,5 +3,5 @@ description: Enable Homebrew in Ubuntu virtual environments
 inputs: {}
 outputs: {}
 runs:
-  using: node18
-  main: src/index.js
+  using: node16
+  main: index.js
