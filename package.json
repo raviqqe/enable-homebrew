@@ -1,6 +1,6 @@
 {
   "name": "enable-github",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "GitHub Action to enable Homebrew in Ubuntu virtual environments",
   "license": "MIT",
   "scripts": {
