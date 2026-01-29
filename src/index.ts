@@ -1,5 +1,6 @@
-import  core from "@actions/core";
+import { join } from "node:path";
+import { addPath } from "@actions/core";
 
 for (const path of ["bin", "sbin"]) {
-  core.addPath("/home/linuxbrew/.linuxbrew/" + path);
+  addPath(join("/home/linuxbrew/.linuxbrew", path));
 }
