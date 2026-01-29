@@ -16,3 +16,4 @@ runs:
     - run: pnpm i --frozen-lockfile
       shell: bash
     - run: node src/index.ts
+      shell: bash
