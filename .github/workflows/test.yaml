@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - run: pnpm i
+      - uses: ./.github/actions/setup
       - run: pnpm test
   action:
     runs-on: ubuntu-latest
