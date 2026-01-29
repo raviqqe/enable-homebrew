@@ -11,6 +11,10 @@ importers:
       '@actions/core':
         specifier: ^2.0.3
         version: 2.0.3
+    devDependencies:
+      '@raviqqe/tsconfig':
+        specifier: ^2.0.3
+        version: 2.0.3
 
 packages:
 
@@ -26,9 +30,18 @@ packages:
   '@actions/io@2.0.0':
     resolution: {integrity: sha512-Jv33IN09XLO+0HS79aaODsvIRyduiF7NY/F6LYeK5oeUmrsz7aFdRphQjFoESF4jS7lMauDOttKALcpapVDIAg==}
 
+  '@raviqqe/tsconfig@2.0.3':
+    resolution: {integrity: sha512-9eTFd1ye3CcD0vfoPVkLzBr+cOTx/Vk5+feJb9KM4rWxEx3zGtXvAr2v3Er2DOdP8w0c2KhwKXFB/By2NffIHA==}
+    engines: {node: '>=24.6.0'}
+
   tunnel@0.0.6:
     resolution: {integrity: sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==}
     engines: {node: '>=0.6.11 <=0.7.0 || >=0.7.3'}
+
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
 
   undici@6.23.0:
     resolution: {integrity: sha512-VfQPToRA5FZs/qJxLIinmU59u0r7LXqoJkCzinq3ckNJp3vKEh7jTWN589YQ5+aoAC/TGRLyJLCPKcLQbM8r9g==}
@@ -52,6 +65,12 @@ snapshots:
 
   '@actions/io@2.0.0': {}
 
+  '@raviqqe/tsconfig@2.0.3':
+    dependencies:
+      typescript: 5.9.3
+
   tunnel@0.0.6: {}
+
+  typescript@5.9.3: {}
 
   undici@6.23.0: {}
