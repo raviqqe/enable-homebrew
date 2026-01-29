@@ -18,6 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: ./.
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup
+      - run: pnpm lint
   spell_check:
     runs-on: ubuntu-latest
     steps:
@@ -29,6 +35,7 @@ jobs:
     needs:
       - unit_test
       - action_test
+      - lint
       - spell_check
     if: always()
     runs-on: ubuntu-latest
