@@ -3,15 +3,11 @@
   "version": "0.1.0",
   "description": "GitHub Action to enable Homebrew in Ubuntu virtual environments",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "build": "ncc build index.js -o dist",
     "test": "npm run build"
   },
-  "main": "index.js",
   "dependencies": {
     "@actions/core": "^2.0.3"
-  },
-  "devDependencies": {
-    "@vercel/ncc": "^0.38.4"
   }
 }

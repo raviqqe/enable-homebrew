@@ -11,10 +11,6 @@ importers:
       '@actions/core':
         specifier: ^2.0.3
         version: 2.0.3
-    devDependencies:
-      '@vercel/ncc':
-        specifier: ^0.38.4
-        version: 0.38.4
 
 packages:
 
@@ -29,10 +25,6 @@ packages:
 
   '@actions/io@2.0.0':
     resolution: {integrity: sha512-Jv33IN09XLO+0HS79aaODsvIRyduiF7NY/F6LYeK5oeUmrsz7aFdRphQjFoESF4jS7lMauDOttKALcpapVDIAg==}
-
-  '@vercel/ncc@0.38.4':
-    resolution: {integrity: sha512-8LwjnlP39s08C08J5NstzriPvW1SP8Zfpp1BvC2sI35kPeZnHfxVkCwu4/+Wodgnd60UtT1n8K8zw+Mp7J9JmQ==}
-    hasBin: true
 
   tunnel@0.0.6:
     resolution: {integrity: sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==}
@@ -59,8 +51,6 @@ snapshots:
       undici: 6.23.0
 
   '@actions/io@2.0.0': {}
-
-  '@vercel/ncc@0.38.4': {}
 
   tunnel@0.0.6: {}
 

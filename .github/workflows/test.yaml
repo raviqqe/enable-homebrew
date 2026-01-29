@@ -9,8 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - run: npm install
-      - run: npm test
+      - run: pnpm i
+      - run: pnpm test
+  action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: .
   spell_check:
     runs-on: ubuntu-latest
     steps:
