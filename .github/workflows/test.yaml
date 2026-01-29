@@ -5,13 +5,13 @@ on:
       - main
   pull_request:
 jobs:
-  test:
+  unit_test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/setup
       - run: pnpm test
-  action:
+  action_test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -23,3 +23,12 @@ jobs:
       - uses: streetsidesoftware/cspell-action@main
         with:
           files: "*.{js,md}"
+  test:
+    needs:
+      - unit_test
+      - action_test
+      - spell_check
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - run: for result in ${{ join(needs.*.result, ' ') }}; do [ $result = success ]; done
