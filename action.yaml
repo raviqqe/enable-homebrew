@@ -7,15 +7,15 @@ inputs: {}
 outputs: {}
 runs:
   using: composite
-  defaults:
-    working-directory: ${{ github.action_path }}
   steps:
     - uses: pnpm/action-setup@v4
     - uses: actions/setup-node@v6
       with:
         cache: pnpm
-        node-version-file: package.json
+        node-version-file: ${{ github.action_path }}/package.json
     - run: pnpm i --frozen-lockfile
       shell: bash
+      working-directory: ${{ github.action_path }}
     - run: node src/index.ts
       shell: bash
+      working-directory: ${{ github.action_path }}
