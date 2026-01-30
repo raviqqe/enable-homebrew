@@ -5,6 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "build": "tsdown",
     "lint": "biome ci",
     "test": "tsc"
   },

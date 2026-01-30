@@ -1,0 +1,1 @@
+import{join as e}from"node:path";import{addPath as t}from"@actions/core";for(let n of[`bin`,`sbin`])t(e(`/home/linuxbrew/.linuxbrew`,n));
