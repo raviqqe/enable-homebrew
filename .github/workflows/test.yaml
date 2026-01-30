@@ -7,18 +7,24 @@ on:
 permissions:
   contents: read
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup
+      - run: pnpm build
+      - run: git diff --exit-code
   unit_test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/setup
       - run: pnpm test
-  # TODO
-  # action_test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v6
-  #     - uses: ./.
+  action_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +40,9 @@ jobs:
           files: "*.{js,md}"
   test:
     needs:
+      - build
       - unit_test
+      - action_test
       - lint
       - spell_check
     if: always()
