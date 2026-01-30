@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "GitHub Action to enable Homebrew in Ubuntu virtual environments",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "build": "tsdown",
     "lint": "biome ci",
