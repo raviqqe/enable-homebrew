@@ -9,6 +9,8 @@ runs:
   using: composite
   steps:
     - uses: pnpm/action-setup@v4
+    - run: ls ${{ github.action_path }}
+      shell: bash
     - uses: actions/setup-node@v6
       with:
         cache: pnpm
