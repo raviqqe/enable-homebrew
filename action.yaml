@@ -10,11 +10,11 @@ runs:
   steps:
     - uses: pnpm/action-setup@v4
       with:
-        package_json_file: ${{ github.action_path }}/package.json
+        version: 10
     - uses: actions/setup-node@v6
       with:
         cache: pnpm
-        node-version-file: package.json
+        node-version: 25
     - run: pnpm i --frozen-lockfile
       shell: bash
       working-directory: ${{ github.action_path }}
