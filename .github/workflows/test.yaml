@@ -34,6 +34,7 @@ jobs:
   test:
     needs:
       - unit_test
+      - action_test
       - lint
       - spell_check
     if: always()
