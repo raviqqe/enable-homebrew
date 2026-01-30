@@ -1,1 +1,7 @@
-import{join as e}from"node:path";import{addPath as t}from"@actions/core";for(let n of[`bin`,`sbin`])t(e(`/home/linuxbrew/.linuxbrew`,n));
+import { join } from "node:path";
+import { addPath } from "@actions/core";
+
+//#region src/index.ts
+for (const path of ["bin", "sbin"]) addPath(join("/home/linuxbrew/.linuxbrew", path));
+
+//#endregion
