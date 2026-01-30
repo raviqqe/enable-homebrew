@@ -12,7 +12,7 @@ runs:
     - uses: actions/setup-node@v6
       with:
         cache: pnpm
-        node-version: 25
+        node-version-file: package.json
     - run: pnpm i --frozen-lockfile
       shell: bash
       working-directory: ${{ github.action_path }}
