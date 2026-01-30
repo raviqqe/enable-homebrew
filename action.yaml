@@ -9,6 +9,8 @@ runs:
   using: composite
   steps:
     - uses: pnpm/action-setup@v4
+      with:
+        package_json_file: ${{ github.action_path }}/package.json
     - uses: actions/setup-node@v6
       with:
         cache: pnpm
