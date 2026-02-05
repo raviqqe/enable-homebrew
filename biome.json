@@ -1,6 +1,3 @@
 {
-  "extends": ["./node_modules/@raviqqe/biome-config/biome.json"],
-  "files": {
-    "includes": ["!dist"]
-  }
+  "extends": ["./node_modules/@raviqqe/biome-config/biome.json"]
 }

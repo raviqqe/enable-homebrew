@@ -3,6 +3,5 @@
   "compilerOptions": {
     "noEmit": true,
     "rootDir": "."
-  },
-  "exclude": ["dist"]
+  }
 }
