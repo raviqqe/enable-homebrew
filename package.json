@@ -1,5 +1,5 @@
 {
-  "name": "enable-github",
+  "name": "@raviqqe/enable-homebrew",
   "version": "1.0.0",
   "description": "GitHub Action to enable Homebrew in Ubuntu virtual environments",
   "license": "MIT",
