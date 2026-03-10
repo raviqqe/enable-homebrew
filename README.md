@@ -4,7 +4,7 @@
 
 GitHub Action to enable Homebrew in Ubuntu virtual environments.
 
-This is temporary mitigation for https://github.com/actions/runner-images/issues/6283.
+This is a temporary mitigation for https://github.com/actions/runner-images/issues/6283.
 
 ## License
 
