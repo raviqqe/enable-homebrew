@@ -1,7 +1,8 @@
 import { defineConfig } from "tsdown";
 
 export default defineConfig({
-  inlineOnly: false,
-  noExternal: ["@actions/*"],
+  deps: {
+    alwaysBundle: ["@actions/*"],
+  },
   platform: "node",
 });
