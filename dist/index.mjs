@@ -5,12 +5,6 @@ import os, { EOL } from "os";
 import * as fs from "fs";
 import { constants, promises } from "fs";
 import * as path from "path";
-Object.create;
-Object.defineProperty;
-Object.getOwnPropertyDescriptor;
-Object.getOwnPropertyNames;
-Object.getPrototypeOf;
-Object.prototype.hasOwnProperty;
 var __commonJSMin = (cb, mod) => () => (mod || cb((mod = { exports: {} }).exports, mod), mod.exports);
 var __require = /* @__PURE__ */ createRequire(import.meta.url);
 //#endregion
