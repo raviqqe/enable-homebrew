@@ -1,6 +1,8 @@
 {
   "extends": "@raviqqe/tsconfig/tsconfig.json",
   "compilerOptions": {
+    "declaration": false,
+    "declarationMap": false,
     "noEmit": true,
     "rootDir": ".",
     "types": ["node"]
