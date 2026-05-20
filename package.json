@@ -16,7 +16,7 @@
     "@biomejs/biome": "^2.4.15",
     "@raviqqe/biome-config": "^2.0.26",
     "@raviqqe/tsconfig": "^3.0.1",
-    "@types/node": "^25.9.0",
+    "@types/node": "^25.9.1",
     "semantic-release": "^25.0.3",
     "tsdown": "^0.22.0"
   },
