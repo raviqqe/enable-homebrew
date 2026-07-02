@@ -6,6 +6,10 @@ updates:
       - /.github/actions/*
     schedule:
       interval: daily
+    groups:
+      codeql:
+        patterns:
+          - github/codeql-action/*
   - package-ecosystem: npm
     directory: /
     schedule:
