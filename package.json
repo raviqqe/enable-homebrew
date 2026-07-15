@@ -18,7 +18,7 @@
     "@raviqqe/tsconfig": "^3.0.1",
     "@types/node": "^26.0.1",
     "semantic-release": "^25.0.5",
-    "tsdown": "^0.22.2"
+    "tsdown": "^0.22.8"
   },
   "engines": {
     "node": ">=26.3.0"
