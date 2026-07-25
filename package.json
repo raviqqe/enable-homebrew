@@ -1,6 +1,6 @@
 {
   "name": "@raviqqe/enable-homebrew",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "GitHub Action to enable Homebrew in Ubuntu virtual environments",
   "license": "MIT",
   "type": "module",
