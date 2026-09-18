@@ -1916,11 +1916,11 @@ __webpack_require__.add({
         class Request {
             constructor(origin, { path, method, body, headers, query, idempotent, blocking, upgrade, headersTimeout, bodyTimeout, reset, throwOnError, expectContinue, servername }, handler){
                 if ('string' != typeof path) throw new InvalidArgumentError('path must be a string');
-                if ('/' === path[0] || path.startsWith('http://') || path.startsWith('https://') || 'CONNECT' === method) {
+                else if ('/' === path[0] || path.startsWith('http://') || path.startsWith('https://') || 'CONNECT' === method) {
                     if (invalidPathRegex.test(path)) throw new InvalidArgumentError('invalid request path');
                 } else throw new InvalidArgumentError('path must be an absolute URL or start with a slash');
                 if ('string' != typeof method) throw new InvalidArgumentError('method must be a string');
-                if (void 0 === normalizedMethodRecords[method] && !isValidHTTPToken(method)) throw new InvalidArgumentError('invalid request method');
+                else if (void 0 === normalizedMethodRecords[method] && !isValidHTTPToken(method)) throw new InvalidArgumentError('invalid request method');
                 if (upgrade && 'string' != typeof upgrade) throw new InvalidArgumentError('upgrade must be a string');
                 if (upgrade && !isValidHeaderValue(upgrade)) throw new InvalidArgumentError('invalid upgrade header');
                 if (null != headersTimeout && (!Number.isFinite(headersTimeout) || headersTimeout < 0)) throw new InvalidArgumentError('invalid headersTimeout');
@@ -2087,7 +2087,7 @@ __webpack_require__.add({
         }
         function processHeader(request, key, val) {
             if (val && 'object' == typeof val && !Array.isArray(val)) throw new InvalidArgumentError(`invalid ${key} header`);
-            if (void 0 === val) return;
+            else if (void 0 === val) return;
             let headerName = headerNameLowerCasedRecord[key];
             if (void 0 === headerName) {
                 headerName = key.toLowerCase();
@@ -2314,10 +2314,9 @@ __webpack_require__.add({
                     });
                 }
                 return body;
-            }
-            if (body && 'function' == typeof body.pipeTo) return new BodyAsyncIterable(body);
-            if (body && 'string' != typeof body && !ArrayBuffer.isView(body) && isIterable(body)) return new BodyAsyncIterable(body);
-            return body;
+            } else if (body && 'function' == typeof body.pipeTo) return new BodyAsyncIterable(body);
+            else if (body && 'string' != typeof body && !ArrayBuffer.isView(body) && isIterable(body)) return new BodyAsyncIterable(body);
+            else return body;
         }
         function nop() {}
         function isStream(obj) {
@@ -2325,7 +2324,7 @@ __webpack_require__.add({
         }
         function isBlobLike(object) {
             if (null === object) return false;
-            {
+            else {
                 if (object instanceof Blob1) return true;
                 if ('object' != typeof object) return false;
                 const sTag = object[Symbol.toStringTag];
@@ -2402,12 +2401,11 @@ __webpack_require__.add({
         }
         function bodyLength(body) {
             if (null == body) return 0;
-            if (isStream(body)) {
+            else if (isStream(body)) {
                 const state = body._readableState;
                 return state && false === state.objectMode && true === state.ended && Number.isFinite(state.length) ? state.length : null;
-            }
-            if (isBlobLike(body)) return null != body.size ? body.size : null;
-            if (isBuffer(body)) return body.byteLength;
+            } else if (isBlobLike(body)) return null != body.size ? body.size : null;
+            else if (isBuffer(body)) return body.byteLength;
             return null;
         }
         function isDestroyed(body) {
@@ -3264,8 +3262,7 @@ __webpack_require__.add({
                     assert(0 === client[kRunning]);
                     util.destroy(socket, new InformationalError('reset'));
                     return constants.ERROR.PAUSED;
-                }
-                if (shouldKeepAlive) if (socket[kReset] && 0 === client[kRunning]) {
+                } else if (shouldKeepAlive) if (socket[kReset] && 0 === client[kRunning]) {
                     util.destroy(socket, new InformationalError('reset'));
                     return constants.ERROR.PAUSED;
                 } else if (null == client[kPipelining] || 1 === client[kPipelining]) setImmediate(()=>client[kResume]());
@@ -5011,7 +5008,7 @@ __webpack_require__.add({
                 this[kProxyHeaders] = opts.headers || {};
                 this[kTunnelProxy] = proxyTunnel;
                 if (opts.auth && opts.token) throw new InvalidArgumentError('opts.auth cannot be used in combination with opts.token');
-                if (opts.auth) this[kProxyHeaders]['proxy-authorization'] = `Basic ${opts.auth}`;
+                else if (opts.auth) this[kProxyHeaders]['proxy-authorization'] = `Basic ${opts.auth}`;
                 else if (opts.token) this[kProxyHeaders]['proxy-authorization'] = opts.token;
                 else if (username && password) this[kProxyHeaders]['proxy-authorization'] = `Basic ${Buffer.from(`${decodeURIComponent(username)}:${decodeURIComponent(password)}`).toString('base64')}`;
                 const connect = buildConnector({
@@ -5083,8 +5080,8 @@ __webpack_require__.add({
             }
             #getUrl(opts) {
                 if ('string' == typeof opts) return new URL1(opts);
-                if (opts instanceof URL1) return opts;
-                return new URL1(opts.uri);
+                else if (opts instanceof URL1) return opts;
+                else return new URL1(opts.uri);
             }
             async [kClose]() {
                 await this[kAgent].close();
@@ -6488,9 +6485,8 @@ ${pendingInterceptorsFormatter.format(pending)}
             if (Array.isArray(headers)) {
                 for(let i = 0; i < headers.length; i += 2)if (headers[i].toLocaleLowerCase() === key.toLocaleLowerCase()) return headers[i + 1];
                 return;
-            }
-            if ('function' == typeof headers.get) return headers.get(key);
-            return lowerCaseEntries(headers)[key.toLocaleLowerCase()];
+            } else if ('function' == typeof headers.get) return headers.get(key);
+            else return lowerCaseEntries(headers)[key.toLocaleLowerCase()];
         }
         function buildHeadersFromArray(headers) {
             const clone = headers.slice();
@@ -6534,10 +6530,10 @@ ${pendingInterceptorsFormatter.format(pending)}
         }
         function getResponseData(data) {
             if (Buffer.isBuffer(data)) return data;
-            if (data instanceof Uint8Array) return data;
-            if (data instanceof ArrayBuffer) return data;
-            if ('object' == typeof data) return JSON.stringify(data);
-            return data.toString();
+            else if (data instanceof Uint8Array) return data;
+            else if (data instanceof ArrayBuffer) return data;
+            else if ('object' == typeof data) return JSON.stringify(data);
+            else return data.toString();
         }
         function getMockDispatch(mockDispatches, key) {
             const basePath = key.query ? buildURL(key.path, key.query) : key.path;
@@ -6677,7 +6673,7 @@ ${pendingInterceptorsFormatter.format(pending)}
         function checkNetConnect(netConnect, origin) {
             const url = new URL(origin);
             if (true === netConnect) return true;
-            if (Array.isArray(netConnect) && netConnect.some((matcher)=>matchValue(matcher, url.host))) return true;
+            else if (Array.isArray(netConnect) && netConnect.some((matcher)=>matchValue(matcher, url.host))) return true;
             return false;
         }
         function buildMockOptions(opts) {
@@ -8999,7 +8995,7 @@ ${pendingInterceptorsFormatter.format(pending)}
             if (trailing !== input.length) input = input.subarray(0, trailing);
             while(true){
                 if (!input.subarray(position.position, position.position + boundary.length).equals(boundary)) return 'failure';
-                position.position += boundary.length;
+                else position.position += boundary.length;
                 if (position.position === input.length - 2 && bufferStartsWith(input, dd, position) || position.position === input.length - 4 && bufferStartsWith(input, ddcrlf, position)) return entryList;
                 if (0x0d !== input[position.position] || 0x0a !== input[position.position + 1]) return 'failure';
                 position.position += 2;
@@ -9016,7 +9012,7 @@ ${pendingInterceptorsFormatter.format(pending)}
                     if ('base64' === encoding) body = Buffer.from(body.toString(), 'base64');
                 }
                 if (0x0d !== input[position.position] || 0x0a !== input[position.position + 1]) return 'failure';
-                position.position += 2;
+                else position.position += 2;
                 let value;
                 if (null !== filename) {
                     contentType ??= 'text/plain';
@@ -9090,14 +9086,14 @@ ${pendingInterceptorsFormatter.format(pending)}
                         collectASequenceOfBytes((char)=>0x0a !== char && 0x0d !== char, input, position);
                 }
                 if (0x0d !== input[position.position] && 0x0a !== input[position.position + 1]) return 'failure';
-                position.position += 2;
+                else position.position += 2;
             }
         }
         function parseMultipartFormDataName(input, position) {
             assert(0x22 === input[position.position - 1]);
             let name = collectASequenceOfBytes((char)=>0x0a !== char && 0x0d !== char && 0x22 !== char, input, position);
             if (0x22 !== input[position.position]) return null;
-            position.position++;
+            else position.position++;
             name = new TextDecoder().decode(name).replace(/%0A/ig, '\n').replace(/%0D/ig, '\r').replace(/%22/g, '"');
             return name;
         }
@@ -9470,8 +9466,7 @@ ${pendingInterceptorsFormatter.format(pending)}
                     }
                     if (!iterator.next().done) throw new TypeError('Unreachable');
                     return array;
-                }
-                {
+                } else {
                     let i = 0;
                     for (const { 0: name, 1: { value } } of this[kHeadersMap]){
                         array[i++] = [
@@ -11113,25 +11108,27 @@ ${pendingInterceptorsFormatter.format(pending)}
                 type: 'basic',
                 headersList: response.headersList
             });
-            if ('cors' === type) return makeFilteredResponse(response, {
-                type: 'cors',
-                headersList: response.headersList
-            });
-            if ('opaque' === type) return makeFilteredResponse(response, {
-                type: 'opaque',
-                urlList: Object.freeze([]),
-                status: 0,
-                statusText: '',
-                body: null
-            });
-            if ('opaqueredirect' === type) return makeFilteredResponse(response, {
-                type: 'opaqueredirect',
-                status: 0,
-                statusText: '',
-                headersList: [],
-                body: null
-            });
-            assert(false);
+            else {
+                if ('cors' === type) return makeFilteredResponse(response, {
+                    type: 'cors',
+                    headersList: response.headersList
+                });
+                if ('opaque' === type) return makeFilteredResponse(response, {
+                    type: 'opaque',
+                    urlList: Object.freeze([]),
+                    status: 0,
+                    statusText: '',
+                    body: null
+                });
+                if ('opaqueredirect' === type) return makeFilteredResponse(response, {
+                    type: 'opaqueredirect',
+                    status: 0,
+                    statusText: '',
+                    headersList: [],
+                    body: null
+                });
+                assert(false);
+            }
         }
         function makeAppropriateNetworkError(fetchParams, err = null) {
             assert(isCancelled(fetchParams));
@@ -11491,10 +11488,8 @@ ${pendingInterceptorsFormatter.format(pending)}
                 if ('5' === metadata.algo[3]) {
                     algorithm = 'sha512';
                     break;
-                }
-                if ('3' !== algorithm[3]) {
-                    if ('3' === metadata.algo[3]) algorithm = 'sha384';
-                }
+                } else if ('3' === algorithm[3]) continue;
+                else if ('3' === metadata.algo[3]) algorithm = 'sha384';
             }
             return algorithm;
         }
@@ -12099,7 +12094,7 @@ ${pendingInterceptorsFormatter.format(pending)}
                 const type = webidl.util.Type(dictionary);
                 const dict = {};
                 if ('Null' === type || 'Undefined' === type) return dict;
-                if ('Object' !== type) throw webidl.errors.exception({
+                else if ('Object' !== type) throw webidl.errors.exception({
                     header: prefix,
                     message: `Expected ${dictionary} to be one of: Null, Undefined, Object.`
                 });
@@ -12922,8 +12917,8 @@ ${pendingInterceptorsFormatter.format(pending)}
         function BOMSniffing(ioQueue) {
             const [a, b, c] = ioQueue;
             if (0xEF === a && 0xBB === b && 0xBF === c) return 'UTF-8';
-            if (0xFE === a && 0xFF === b) return 'UTF-16BE';
-            if (0xFF === a && 0xFE === b) return 'UTF-16LE';
+            else if (0xFE === a && 0xFF === b) return 'UTF-16BE';
+            else if (0xFF === a && 0xFE === b) return 'UTF-16LE';
             return null;
         }
         function combineByteSequences(sequences) {
@@ -13654,7 +13649,7 @@ ${pendingInterceptorsFormatter.format(pending)}
             }
             consume(n) {
                 if (n > this.#byteOffset) throw new Error('Called consume() before buffers satiated.');
-                if (0 === n) return emptyBuffer;
+                else if (0 === n) return emptyBuffer;
                 if (this.#buffers[0].length === n) {
                     this.#byteOffset -= this.#buffers[0].length;
                     return this.#buffers.shift();
@@ -13667,14 +13662,14 @@ ${pendingInterceptorsFormatter.format(pending)}
                     if (length + offset === n) {
                         buffer.set(this.#buffers.shift(), offset);
                         break;
-                    }
-                    if (length + offset > n) {
+                    } else if (length + offset > n) {
                         buffer.set(next.subarray(0, n - offset), offset);
                         this.#buffers[0] = next.subarray(n - offset);
                         break;
+                    } else {
+                        buffer.set(this.#buffers.shift(), offset);
+                        offset += next.length;
                     }
-                    buffer.set(this.#buffers.shift(), offset);
-                    offset += next.length;
                 }
                 this.#byteOffset -= n;
                 return buffer;
@@ -13748,8 +13743,7 @@ ${pendingInterceptorsFormatter.format(pending)}
                     this.ws[kReadyState] = states.CLOSING;
                     this.ws[kReceivedClose] = true;
                     return false;
-                }
-                if (opcode === opcodes.PING) {
+                } else if (opcode === opcodes.PING) {
                     if (!this.ws[kReceivedClose]) {
                         const frame = new WebsocketFrameSend(body);
                         this.ws[kResponse].socket.write(frame.createFrame(opcodes.PONG));
@@ -14351,7 +14345,7 @@ ${pendingInterceptorsFormatter.format(pending)}
 });
 function utils_toCommandValue(input) {
     if (null == input) return '';
-    if ('string' == typeof input || input instanceof String) return input;
+    else if ('string' == typeof input || input instanceof String) return input;
     return JSON.stringify(input);
 }
 function command_issueCommand(command, properties, message) {
