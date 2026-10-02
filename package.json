@@ -16,7 +16,7 @@
     "@biomejs/biome": "^2.5.14",
     "@raviqqe/biome-config": "^2.0.27",
     "@raviqqe/tsconfig": "^3.0.2",
-    "@rslib/core": "^1.0.2",
+    "@rslib/core": "^1.0.3",
     "@types/node": "^26.6.3",
     "semantic-release": "^25.0.9"
   },
