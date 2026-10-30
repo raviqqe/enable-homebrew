@@ -19,8 +19,8 @@ importers:
         specifier: ^2.0.28
         version: 2.0.28(@biomejs/biome@2.6.3)
       '@raviqqe/tsconfig':
-        specifier: ^3.0.2
-        version: 3.0.2
+        specifier: ^3.0.3
+        version: 3.0.3
       '@rslib/core':
         specifier: ^1.0.4
         version: 1.0.4(typescript@7.0.2)
@@ -275,9 +275,9 @@ packages:
     peerDependencies:
       '@biomejs/biome': ^2.1.4
 
-  '@raviqqe/tsconfig@3.0.2':
-    resolution: {integrity: sha512-san+p1rO62JSKwb7F2hbjoY3EtPhC4qiQM9DNpE+pAIguQRlNurfVpm6KNlIuc+WY0e2cS3X7H2EMJ+PZaRtZw==}
-    engines: {node: '>=25.8.0'}
+  '@raviqqe/tsconfig@3.0.3':
+    resolution: {integrity: sha512-P4bDrLxHpQi4AzWg61XExTMOj80x16eHUKtuAlKdLaV+fe6uLjBPey10v5OXgcHnpyVB72SnjMtHuwJjX92Byg==}
+    engines: {node: '>=26.5.0'}
 
   '@rsbuild/core@2.3.0-beta.0':
     resolution: {integrity: sha512-g1N0YmOc/ZVMYJAq/AnNaz0arrFYYS3cPmOAG+RDvOKlxXpWZ/HAd3OjgsZQfmiv4FuN5V12FxflWweeh4c9Hg==}
@@ -1858,7 +1858,7 @@ snapshots:
     dependencies:
       '@biomejs/biome': 2.6.3
 
-  '@raviqqe/tsconfig@3.0.2':
+  '@raviqqe/tsconfig@3.0.3':
     dependencies:
       typescript: 7.0.2
 
