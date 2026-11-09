@@ -13,7 +13,7 @@
     "@actions/core": "^3.0.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.6.4",
+    "@biomejs/biome": "^2.6.6",
     "@raviqqe/biome-config": "^2.0.29",
     "@raviqqe/tsconfig": "^3.0.5",
     "@rslib/core": "^1.0.6",
