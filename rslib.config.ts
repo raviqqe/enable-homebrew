@@ -7,6 +7,7 @@ export default defineConfig({
       output: {
         autoExternal: false,
       },
+      syntax: "esnext",
     },
   ],
 });
