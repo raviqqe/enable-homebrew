@@ -18,7 +18,7 @@
     "@raviqqe/tsconfig": "^3.0.5",
     "@rslib/core": "^1.0.7",
     "@types/node": "^26.6.6",
-    "semantic-release": "^25.0.9",
+    "semantic-release": "^26.0.1",
     "typescript": "^7.0.2"
   },
   "engines": {
